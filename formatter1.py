@@ -1,3 +1,7 @@
+import csv
+import json
+
+
 courses = {
 
     "Medieval Studies": ['Medieval Studies 1025A/B INTRODUCTION TO THE MEDIEVAL WORLD', 'Medieval Studies 4320F/G INDEPENDENT STUDY SEMINAR', 'Medieval Studies 3320F/G DIRECTED READINGS IN MEDIEVAL STUDIES', 'Medieval Studies 3022F/G INTRODUCTION TO MEDIEVAL MANUSCRIPTS', 'Medieval Studies 1026A/B INTRODUCTION TO MEDIEVAL CULTURES AND LITERATURES', 'Medieval Studies 1022 INTRODUCTION TO MEDIEVAL STUDIES'],
@@ -300,4 +304,22 @@ courses = {
 "Medical Health Informatics": ['Medical Health Informatics 4110G HEALTH INFORMATION MANAGEMENT',    'Medical Health Informatics 4980E SEMINAR AND RESEARCH PROJECT', 'Medical Health Informatics 4100F HEALTH INFORMATICS']                                 
 
 
-};
+}
+
+with open("data.json", "w") as outfile:
+    for key in courses.keys():
+        for course in courses[key]:
+            dictionary = {
+                "department" : key,
+                "course": course,
+                "messengerGroups": []
+            }
+            print(dictionary)
+            json_object = json.dumps(dictionary, indent=3)
+
+            # Writing to sample.json
+            json.dump(dictionary, outfile)
+            outfile.write('\n')
+
+#print(keyList)
+#print("#######################")
