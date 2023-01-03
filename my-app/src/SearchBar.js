@@ -15,7 +15,7 @@ import Autocomplete from '@mui/material/Autocomplete';
         renderInput={(params) => (
             
           <TextField
-            color='white'
+            
             {...params}
             label="Search input"
             InputProps={{
