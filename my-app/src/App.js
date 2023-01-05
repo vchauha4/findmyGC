@@ -1,11 +1,14 @@
 import React from 'react';
 import Header from './Header';
-import MediaCard from './Card';
+import NestedGrid from './Grid';
 function App() {
+
+
+
   return (
     <div>
       <Header />
-      <MediaCard/>
+      <NestedGrid/>
     </div>
   );
 }
