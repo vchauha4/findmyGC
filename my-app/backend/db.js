@@ -7,6 +7,7 @@ module.exports = {
         MongoClient.connect('mongodb://localhost:27017/CoursDB')
             .then((client)=>{
                 dbConnection = client.db()
+                console.log("succesful connection")
                 return cb()
             })
             .catch(err=>{
