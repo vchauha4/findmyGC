@@ -8,7 +8,7 @@ export default function IconLabelButtons() {
   return (
     <Stack direction="row" spacing={2} style={{ marginRight: '10px', cursor:'pointer' }}>
       <Button variant="outlined" startIcon={<AddIcon/>} sx={{backgroundColor:'white'}}>
-        <Link to="/addForm">Add Messenger Group</Link>
+        <Link to="/addForm" style={{ textDecoration: 'none' }}>Add Messenger Group</Link>
       </Button>
     </Stack>
   );
