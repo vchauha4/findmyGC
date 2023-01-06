@@ -307,6 +307,7 @@ courses = {
 }
 
 with open("data.json", "w") as outfile:
+    outfile.write("courseList = [")
     for key in courses.keys():
         for course in courses[key]:
             dictionary = {
@@ -319,7 +320,7 @@ with open("data.json", "w") as outfile:
 
             # Writing to sample.json
             json.dump(dictionary, outfile)
-            outfile.write('\n')
-
+            outfile.write(','+'\n')
+    outfile.write("]")
 #print(keyList)
 #print("#######################")
