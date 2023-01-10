@@ -6,7 +6,7 @@ import Autocomplete from '@mui/material/Autocomplete';
 
  function SearchBar() {
   return (
-    <Stack spacing={2} sx={{ width: 600 , backgroundColor: 'white'}}>
+    <Stack spacing={2} sx={{ width: "30%" , backgroundColor: 'white'}}>
 
       <Autocomplete
         freeSolo

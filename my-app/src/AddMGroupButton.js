@@ -6,7 +6,7 @@ import Stack from '@mui/material/Stack';
 
 export default function IconLabelButtons() {
   return (
-    <Stack direction="row" spacing={2} style={{ marginRight: '10px', cursor:'pointer' }}>
+    <Stack direction="row" spacing={2} style={{ marginRight: '2.5%', cursor:'pointer' }}>
       <Button variant="outlined" startIcon={<AddIcon/>} sx={{backgroundColor:'white'}}>
         <Link to="/addForm" style={{ textDecoration: 'none' }}>Add Messenger Group</Link>
       </Button>
