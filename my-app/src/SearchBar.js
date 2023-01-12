@@ -18,7 +18,7 @@ import Autocomplete from '@mui/material/Autocomplete';
           <TextField
             
             {...params}
-            label="Search input"
+            label="Search Course"
             InputProps={{
               ...params.InputProps,
               type: 'search',

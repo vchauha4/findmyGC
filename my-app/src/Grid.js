@@ -3,7 +3,7 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 
 import Grid from '@mui/material/Grid';
-import MediaCard from './Card';
+import MediaCard from './card';
 
 function FormRow() {
   return (
@@ -25,18 +25,16 @@ function FormRow() {
 
 export default function NestedGrid() {
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <Grid container spacing={1}>
-        <Grid container item spacing={3}>
+    <Box sx={{ flexGrow: 1 ,justify:'center'}}>
+
+    {[1,1,1,1,1,1,1,1].map((value)=>(
+      <Grid key = {value} container spacing={1}>
+        <Grid container item spacing={3} align="center">
           <FormRow />
         </Grid>
-        <Grid container item spacing={3}>
-          <FormRow />
-        </Grid>
-        <Grid container item spacing={3}>
-          <FormRow />
-        </Grid>
+
       </Grid>
+    ))}
     </Box>
   );
 }
