@@ -21,7 +21,7 @@ connectToDb((err) => {
 })
 
 
-app.get('/courses', (req,res)=> {
+app.get('/courses', async(req,res)=> {
     
     const filter = {};
     const projection = {
@@ -32,11 +32,28 @@ app.get('/courses', (req,res)=> {
     
     const coll = getDB('CoursDB').collection('courses');
     const cursor = coll.find(filter, { projection });
-    const result = cursor.toArray();
+    const result = await cursor.toArray();
     
     
-    res.json({mssg : "welcome to the api"})
-    res.json({mssg : result})
-    //res.json({res:result})
+    res.json(result)
+
+})
+
+app.get('/departments', async(req,res)=> {
+    
+    const filter = {};
+    const projection = {
+        'department': 1, 
+        '_id': 0
+    };
+
+    
+    const coll = getDB('CoursDB').collection('courses');
+    const cursor = await coll.distinct('department');
+    //const result = await cursor.toArray();
+    
+    
+    res.json(cursor)
+
 })
 
