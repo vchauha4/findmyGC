@@ -2,3 +2,6 @@ mongodb user pass:
 
 findmyGCtest
 iSwwxqUpow68d66G
+
+mongodb+srv://findmyGCtest:iSwwxqUpow68d66G@cluster0.o52vb2b.mongodb.net/test
+

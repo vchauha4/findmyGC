@@ -24,14 +24,10 @@ connectToDb((err) => {
 
 app.get('/courses', async(req,res)=> {
     
-    const filter = {};
-    const projection = {
-        'course': 1, 
-        '_id': 0
-    };
+    
 
     
-    const coll = getDB('CoursDB').collection('courses');
+    const coll = getDB('courseDB').collection('courses');
     const cursor = await coll.distinct('course');
   
     
@@ -42,14 +38,9 @@ app.get('/courses', async(req,res)=> {
 
 app.get('/departments', async(req,res)=> {
     
-    const filter = {};
-    const projection = {
-        'department': 1, 
-        '_id': 0
-    };
 
     
-    const coll = getDB('CoursDB').collection('courses');
+    const coll = getDB('courseDB').collection('courses');
     const cursor = await coll.distinct('department');
     
     
@@ -67,7 +58,7 @@ app.get('/courses/:id', async(req,res)=>{
             '_id': 0, 
             'messengerGroups': 0
           };
-        const coll = getDB('CoursDB').collection('courses');
+        const coll = getDB('courseDB').collection('courses');
         const cursor =  coll.find(filter,{projection});
         const result = await cursor.toArray();
     
@@ -81,10 +72,11 @@ app.get('/courses/:id', async(req,res)=>{
 
 app.get('/id/:bookname', async(req,res) =>{
     console.log(req.params.bookname)
-    const filter = {'course':a};
+    const filter = {'course':req.params.bookname};
+    const projection = {'_id':1}
 
-    const coll = getDB('CoursDB').collection('courses');
-    const cursor = coll.find(filter);
+    const coll = getDB('courseDB').collection('courses');
+    const cursor = coll.find(filter,{projection});
     const result = await cursor.toArray();
     
     res.json(result)

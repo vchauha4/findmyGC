@@ -4,7 +4,7 @@ let dbConnection
 
 module.exports = {
     connectToDb: (cb) => {
-        MongoClient.connect('mongodb://localhost:27017/CoursDB')
+        MongoClient.connect('mongodb+srv://findmyGCtest:iSwwxqUpow68d66G@cluster0.o52vb2b.mongodb.net/courseDB')
             .then((client)=>{
                 dbConnection = client.db()
                 console.log("succesful connection")
