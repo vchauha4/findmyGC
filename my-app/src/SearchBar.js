@@ -2,9 +2,26 @@ import * as React from 'react';
 import TextField from '@mui/material/TextField';
 import Stack from '@mui/material/Stack';
 import Autocomplete from '@mui/material/Autocomplete';
+import axios from 'axios';
 
 
+
+
+ 
  function SearchBar() {
+  const url = 'http://localhost:3001/departments';
+
+  React.useEffect(()=>{
+    getData()
+  },[]);
+
+  const getData = async()=>{
+    await axios.get(url)
+    .then(({data})=>{
+      console.log(data)
+    })
+  }
+ 
   return (
     <Stack spacing={2} sx={{ width: "30%" , backgroundColor: 'white'}}>
 
@@ -12,7 +29,7 @@ import Autocomplete from '@mui/material/Autocomplete';
         freeSolo
         id="free-solo-2-demo"
         disableClearable
-        options={courseList.map((option) => option.course)}
+        options={courseList.map(getData())}
         renderInput={(params) => (
             
           <TextField

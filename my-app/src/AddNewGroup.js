@@ -7,21 +7,13 @@ import Grid from '@mui/material/Grid';
 import SearchBar from './SearchBar';
 import Button from '@mui/material/Button';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
+
 
 
 export default function AddNewGroup() {
 
 
-  const url = 'http://localhost:3001/departments';
-  
-  const getAllDepts = () => {
-      axios.get(url)
-      .then((response)=>{
-        console.log(response.data);
-      })
-  }
-  getAllDepts();
+
   return (
     
     <Grid container justify ="center" alignItems="center" direction = "column" marginTop={"5%"}>
