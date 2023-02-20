@@ -11,9 +11,16 @@ import { Link } from 'react-router-dom';
 
 
 export default function AddNewGroup() {
+  const [course, setCourse] = React.useState('aaaaaaaaaaa');
+  const [groupChat, setGroupChat] = React.useState('');
+  const [description, setDescription] = React.useState('');
 
+  const handleSubmit = () =>{
+    console.log(groupChat)
+    console.log(description)
 
-
+  
+  }
   return (
     
     <Grid container justify ="center" alignItems="center" direction = "column" marginTop={"5%"}>
@@ -27,6 +34,7 @@ export default function AddNewGroup() {
           label="Group Chat Link"
           sx={{width:'465px'}}
           const message = ""
+          onChange = {(event)=>{setGroupChat(event.target.value)}}
           
         />
     <Box    
@@ -47,10 +55,13 @@ export default function AddNewGroup() {
           multiline
           rows={4}
           variant="outlined"
+          onChange = {(event)=>{setDescription(event.target.value)}}
         />
       </div>
     </Box>
-    <Button variant="contained" ><Link to="/" style={{ textDecoration: 'none', color:'white' }}>Submit</Link></Button>
+    <Button variant="contained" 
+  
+    ><Link onClick ={handleSubmit} to="/" style={{ textDecoration: 'none', color:'white' }}>Submit</Link></Button>
 
     </Grid>
   );

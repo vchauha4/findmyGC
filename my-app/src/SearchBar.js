@@ -18,7 +18,7 @@ import axios from 'axios';
     <Stack spacing={2} sx={{ width: "30%" , backgroundColor: 'white'}}>
 
       <Autocomplete
-        freeSolo
+        
         id="free-solo-2-demo"
         disableClearable
         options={courseList}
