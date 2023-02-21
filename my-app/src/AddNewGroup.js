@@ -11,11 +11,12 @@ import { Link } from 'react-router-dom';
 
 
 export default function AddNewGroup() {
-  const [course, setCourse] = React.useState('aaaaaaaaaaa');
+  const [course, setCourse] = React.useState('');
   const [groupChat, setGroupChat] = React.useState('');
   const [description, setDescription] = React.useState('');
 
   const handleSubmit = () =>{
+    console.log(course)
     console.log(groupChat)
     console.log(description)
 
@@ -24,7 +25,10 @@ export default function AddNewGroup() {
   return (
     
     <Grid container justify ="center" alignItems="center" direction = "column" marginTop={"5%"}>
-    <SearchBar id = "course-selection"/>
+    <SearchBar id = "course-selection"
+      setCourse={setCourse}
+    />
+    
     <h1>{" "}</h1>
     
     <TextField
