@@ -55,35 +55,22 @@ app.get('/departments', async(req,res)=> {
 
 app.get('/courses/:id', async(req,res)=>{
 
-    if(ObjectId.isValid(req.params.id)){
-        const filter = {_id: ObjectId(req.params.id)};
+
+        const filter = {'department': req.params.id};
         const projection = {
-            'department': 0, 
-            '_id': 0, 
-            'messengerGroups': 0
+            '_id':0,
+            'course':1, 
+            'messengerGroups': 1
           };
         const coll = getDB('courseDB').collection('courses');
         const cursor =  coll.find(filter,{projection});
         const result = await cursor.toArray();
     
         res.json(result)
-    }
-    else{
-        res.status(500).json({error:"not a valid id"})
-    }
+
     
 })
 
-app.get('/id/:bookname', async(req,res) =>{
-    console.log(req.params.bookname)
-    const filter = {'course':req.params.bookname};
-    const projection = {'_id':1}
 
-    const coll = getDB('courseDB').collection('courses');
-    const cursor = coll.find(filter,{projection});
-    const result = await cursor.toArray();
-    
-    res.json(result)
-})
 
 

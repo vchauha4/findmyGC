@@ -24,11 +24,11 @@ function FormRow() {
 }
 
 export default function NestedGrid() {
-
+  const oneList = Array(1982).fill(1)
   return (
     <Box sx={{ flexGrow: 1 ,justify:'center'}}>
 
-    {[1,1,1,1,1,1,11,1,1].map((value)=>(
+    {oneList.map((value)=>(
       <Grid key = {value} container spacing={1}>
         <Grid container item spacing={3} align="center">
           <FormRow />

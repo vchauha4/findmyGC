@@ -20,8 +20,9 @@ import axios from 'axios';
     <Stack spacing={2} sx={{ width: "30%" , backgroundColor: 'white'}}>
 
       <Autocomplete
-        onChange={(event, value) => setCourse(value)}
+        
         id="free-solo-2-demo"
+        onChange={(event, value) => setCourse(value)}
         disableClearable
         options={courseList}
         renderInput={(params) => (

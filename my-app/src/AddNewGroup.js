@@ -22,6 +22,15 @@ export default function AddNewGroup() {
 
   
   }
+  const validGCLink = ()=>{
+    console.log(groupChat.slice(0,12)+"&&&&&&&");
+    if (course.length>2 && groupChat.slice(0,13)==="https://m.me/"){
+      return(false);
+    }
+    else{
+      return(true);
+    }
+  }
   return (
     
     <Grid container justify ="center" alignItems="center" direction = "column" marginTop={"5%"}>
@@ -64,7 +73,7 @@ export default function AddNewGroup() {
       </div>
     </Box>
     <Button variant="contained" 
-  
+      disabled={validGCLink()}
     ><Link onClick ={handleSubmit} to="/" style={{ textDecoration: 'none', color:'white' }}>Submit</Link></Button>
 
     </Grid>
