@@ -4,6 +4,7 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import Inner from './Inner';
 
 
 export default function SimpleAccordion() {
@@ -26,11 +27,7 @@ export default function SimpleAccordion() {
             
 
         <AccordionDetails>
-        {theCourses.map(theCourse=>(
-          <Typography className="course" key={theCourse.course} >
-            {theCourse.course}
-          </Typography>
-          ))}
+            <Inner department={station}></Inner>
         </AccordionDetails>
       </Accordion>
        ))}
