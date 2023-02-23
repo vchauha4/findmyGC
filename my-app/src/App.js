@@ -12,7 +12,7 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path='/' element={ [<Header/> ,<SimpleAccordion/>]}/>
+        <Route path='/' element={ [<Header /> ,<SimpleAccordion/>]}/>
         <Route path='/addForm' element={[ <Header2/>,<AddNewGroup/>]}/>
       </Routes>
     </Router>

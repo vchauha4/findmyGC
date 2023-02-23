@@ -3,7 +3,7 @@ import * as React from 'react';
 import axios from "axios"
 
 export default function Inner({department}){
-    const [theCourses,setTheCourses] = React.useState([''])
+    const [theCourses,setTheCourses] = React.useState([{course:'Loading...'}])
     department = department.replace(" ","%20")
     department = department.replace("/","%2F")
 
@@ -14,7 +14,7 @@ export default function Inner({department}){
           .then((error)=>console.log(error))
       })
     return(
-        <div>
+        <div >
         {theCourses.map(theCourse=>(
             <Typography className="course" key={theCourse.course} >
               {theCourse.course}
