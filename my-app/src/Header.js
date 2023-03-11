@@ -2,7 +2,7 @@ import React from 'react';
 import SearchBar from './SearchBar';
 import IconLabelButtons from './AddMGroupButton';
 import { Link } from 'react-router-dom';
-function Header() {
+function Header({setSearchResult}) {
 
   const [course, setCourse] = React.useState('');
   console.log(course)

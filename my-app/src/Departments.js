@@ -16,7 +16,7 @@ export default function SimpleAccordion() {
      
         {stations.map(station => (
         
-        <Accordion disableGutters sx={{marginLeft:'400px',width:'60%'}} >
+        <Accordion disableGutters sx={{marginLeft:'20%',width:'60%'}} >
         <AccordionSummary 
           expandIcon={<ExpandMoreIcon  />}
           aria-controls="panel1a-content"

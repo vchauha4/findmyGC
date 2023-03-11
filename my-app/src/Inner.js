@@ -1,7 +1,9 @@
 import Typography from '@mui/material/Typography';
 import * as React from 'react';
 import axios from "axios"
-
+import Card from '@mui/material/Card';
+import { Grid } from '@mui/material';
+import {CardHeader} from '@mui/material';
 export default function Inner({department}){
     const [theCourses,setTheCourses] = React.useState([{course:'Loading...'}])
     department = department.replace(" ","%20")
@@ -16,10 +18,18 @@ export default function Inner({department}){
     return(
         <div >
         {theCourses.map(theCourse=>(
-            <Typography className="course" key={theCourse.course} >
-              {theCourse.course}
-            </Typography>
+            <div key={theCourses.indexOf(theCourse)}>
+
+        
+                <Typography className="course" title={theCourse.course}>
+                    Course: {theCourse.course}
+                </Typography>
+                <Typography>
+                    messenger group links:{theCourse.messengerGroups}
+                </Typography>
+            </div>
             ))}
+            
         </div>
     );
 }
