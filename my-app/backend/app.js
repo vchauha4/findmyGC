@@ -70,6 +70,22 @@ app.get('/courses/:id', async(req,res)=>{
 
     
 })
+app.get('/gc/:id', async(req,res)=>{
+
+
+    const filter = {'course': req.params.id};
+    const projection = {
+        '_id':0,
+        'messengerGroups': 1
+      };
+    const coll = getDB('courseDB').collection('courses');
+    const cursor =  coll.find(filter,{projection});
+    const result = await cursor.toArray();
+
+    res.json(result)
+
+
+})
 
 
 

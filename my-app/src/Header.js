@@ -12,7 +12,7 @@ function Header({setSearchResult}) {
       <SearchBar
    
       id = "course-selection"
-      setCourse={setCourse}/>
+      setCourse={setSearchResult}/>
       
       <IconLabelButtons/>
     </div>
