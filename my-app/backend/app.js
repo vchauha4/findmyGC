@@ -12,6 +12,10 @@ const cors = require('cors');
 //init app
 
 const app = express()
+const bodyParser = require('body-parser')
+
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: false }))
 app.use(cors())
 //db connection
 let db
@@ -84,6 +88,24 @@ app.get('/gc/:id', async(req,res)=>{
 
     res.json(result)
 
+
+})
+
+app.post('/addLink/:id',async(req,res)=>{
+    const  query = {'course':req.params.id};
+    let linkObject = req.body;
+
+    try{
+        
+        
+        const coll = getDB('courseDB').collection('courses');
+        await coll.updateOne(query,{$push:{messengerGroups:linkObject.link}});
+        res.json(linkObject);
+        
+    }
+    catch(err){
+        res.json(err)
+    }
 
 })
 
