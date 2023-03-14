@@ -6,7 +6,7 @@ import { Grid } from '@mui/material';
 import {CardHeader} from '@mui/material';
 export default function Inner({department}){
     const [theCourses,setTheCourses] = React.useState([{course:'Loading...'}])
-    department = department.replace(" ","%20")
+    department = department.replace(/ /g,"%20")
     department = department.replace("/","%2F")
 
     React.useEffect(function(){
@@ -25,7 +25,7 @@ export default function Inner({department}){
                     Course: {theCourse.course}
                 </Typography>
                 <Typography>
-                    messenger group links:{theCourse.messengerGroups}
+                    messenger group links:  {theCourse.messengerGroups+" "}
                 </Typography>
             </div>
             ))}

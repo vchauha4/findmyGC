@@ -7,18 +7,44 @@ import Grid from '@mui/material/Grid';
 import SearchBar from './SearchBar';
 import Button from '@mui/material/Button';
 import { Link } from 'react-router-dom';
-
+import axios from 'axios';
 
 
 export default function AddNewGroup() {
-  const [course, setCourse] = React.useState('');
+  var [course, setCourse] = React.useState('');
   const [groupChat, setGroupChat] = React.useState('');
   const [description, setDescription] = React.useState('');
 
-  const handleSubmit = () =>{
-    console.log(course)
-    console.log(groupChat)
-    console.log(description)
+  function handleSubmit(){
+
+
+    course = course.replace(/ /g,"%20");
+    course =course.replace("/","%2F");
+    
+    var data = JSON.stringify({
+    "link": groupChat
+    });
+
+    console.log(course);
+    console.log(data);
+
+    var config = {
+      method: 'post',
+      maxBodyLength: Infinity,
+      url: 'http://localhost:3001/addLink/'+course,
+      headers: { 
+        'Content-Type': 'application/json'
+      },
+      data : data
+    };
+
+    axios(config)
+    .then(function (response) {
+      console.log(JSON.stringify(response.data));
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
 
   
   }
