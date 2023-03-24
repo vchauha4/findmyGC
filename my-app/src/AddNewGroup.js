@@ -13,6 +13,7 @@ import axios from 'axios';
 export default function AddNewGroup() {
   var [course, setCourse] = React.useState('');
   const [groupChat, setGroupChat] = React.useState('');
+  // eslint-disable-next-line
   const [description, setDescription] = React.useState('');
 
   function handleSubmit(){
@@ -49,7 +50,7 @@ export default function AddNewGroup() {
   
   }
   const validGCLink = ()=>{
-    console.log(groupChat.slice(0,12)+"&&&&&&&");
+    
     if (course.length>2 && groupChat.slice(0,13)==="https://m.me/"){
       return(false);
     }

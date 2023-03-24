@@ -1,9 +1,10 @@
 import Typography from '@mui/material/Typography';
 import * as React from 'react';
 import axios from "axios"
-import Card from '@mui/material/Card';
-import { Grid } from '@mui/material';
-import {CardHeader} from '@mui/material';
+
+import {Link} from '@mui/material';
+
+
 export default function Inner({department}){
     const [theCourses,setTheCourses] = React.useState([{course:'Loading...'}])
     department = department.replace(/ /g,"%20")
@@ -14,7 +15,7 @@ export default function Inner({department}){
           .get("http://localhost:3001/courses/"+department)
           .then((response)=>setTheCourses(response.data))
           .then((error)=>console.log(error))
-      })
+      },[theCourses,department]);
     return(
         <div >
         {theCourses.map(theCourse=>(
@@ -25,7 +26,7 @@ export default function Inner({department}){
                     Course: {theCourse.course}
                 </Typography>
                 <Typography>
-                    messenger group links:  {theCourse.messengerGroups+" "}
+                    messenger group links: <Link href={theCourse.messengerGroups}>{theCourse.messengerGroups+"  "}</Link>  
                 </Typography>
             </div>
             ))}
