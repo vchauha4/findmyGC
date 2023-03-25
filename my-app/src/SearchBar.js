@@ -13,7 +13,6 @@ import axios from 'axios';
     axios
       .get("http://localhost:3001/courses")
       .then((response)=>setCoursList(response.data))
-      .then((error)=>console.log(error))
   },[courseList]);
   
 

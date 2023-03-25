@@ -2,7 +2,8 @@ import Typography from '@mui/material/Typography';
 import * as React from 'react';
 import axios from "axios"
 
-import {Link} from '@mui/material';
+import Links from './DisplayMGroups';
+
 
 
 export default function Inner({department}){
@@ -26,7 +27,7 @@ export default function Inner({department}){
                     Course: {theCourse.course}
                 </Typography>
                 <Typography>
-                    messenger group links: <Link href={theCourse.messengerGroups}>{theCourse.messengerGroups+"  "}</Link>  
+                    messenger group links:  <Links messengerList={theCourse.messengerGroups}></Links>
                 </Typography>
             </div>
             ))}
