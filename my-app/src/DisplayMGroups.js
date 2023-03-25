@@ -6,19 +6,16 @@ import Link from '@mui/material/Link';
 
 export default function Links({messengerList}) {
     const[mList,setMList] = React.useState([]);
-
-    if(messengerList !== undefined){
-        setMList(messengerList)
+    if(messengerList!==undefined &&messengerList.length>0){
+        setMList(messengerList);
     }
   return (
-    <div>
-    {mList.map(messenger=>(
+    <div >
+    {mList.map(link=>(
         
-        <Link href={messenger}>
-            {messenger+"  "}
-        </Link>
-        
+
         ))}
+        
     </div>
   );
 }
