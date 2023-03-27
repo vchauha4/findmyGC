@@ -104,7 +104,7 @@ app.post('/addLink/:id',async(req,res)=>{
         
     }
     catch(err){
-        res.json(err)
+        res.json(err+"")
     }
 
 })
