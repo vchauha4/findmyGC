@@ -2,16 +2,16 @@ import Typography from '@mui/material/Typography';
 import * as React from 'react';
 import axios from "axios"
 import Links from './DisplayMGroups';
-
+import key from "./apiKey"
 
 export default function Inner({department}){
     const [theCourses,setTheCourses] = React.useState([{course:'Loading...'}])
     department = department.replace(/ /g,"%20")
     department = department.replace("/","%2F")
-
+    console.log(key.coursesList);
     React.useEffect(function(){
         axios
-          .get("https://api.findmygc.com/courses/"+department)
+          .get(key.coursesList+department)
           .then((response)=>setTheCourses(response.data))
           .then((error)=>console.log(error))
       },[theCourses,department]);

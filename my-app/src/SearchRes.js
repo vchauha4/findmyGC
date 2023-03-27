@@ -5,6 +5,7 @@ import * as React from 'react';
 import Typography from '@mui/material/Typography';
 import axios from 'axios';
 import Links from './DisplayMGroups';
+import key from './apiKey'
 export default function SearchRes({searchResult}) {
 
   const[searchRes,setSearchRes] = React.useState([{messengerGroups:[]}]);
@@ -14,7 +15,7 @@ export default function SearchRes({searchResult}) {
 
   React.useEffect(function(){
       axios
-        .get("https://api.findmygc.com/gc/"+searchResult)
+        .get(key.gcList+searchResult)
         .then((response)=>setSearchRes(response.data))
         .then((error)=>console.log(error))
     },[searchRes,searchResult]);

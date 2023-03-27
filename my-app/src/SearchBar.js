@@ -3,6 +3,7 @@ import TextField from '@mui/material/TextField';
 import Stack from '@mui/material/Stack';
 import Autocomplete from '@mui/material/Autocomplete';
 import axios from 'axios';
+import key from './apiKey';
 
 
  function SearchBar({setCourse}) {
@@ -11,7 +12,7 @@ import axios from 'axios';
   
   React.useEffect(function(){
     axios
-      .get("https://api.findmygc.com/courses")
+      .get(key.coursesList)
       .then((response)=>setCoursList(response.data))
   },[courseList]);
   

@@ -7,3 +7,6 @@ package-lock.json
 my-app/package-lock.json
 my-app/package.json
 package-lock.json
+my-app/build.zip
+my-app/public/index.html
+my-app/src/apiKey.js

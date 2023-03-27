@@ -8,7 +8,7 @@ import SearchBar from './SearchBar';
 import Button from '@mui/material/Button';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-
+import key from './apiKey';
 
 export default function AddNewGroup() {
   var [course, setCourse] = React.useState('');
@@ -32,7 +32,7 @@ export default function AddNewGroup() {
     var config = {
       method: 'post',
       maxBodyLength: Infinity,
-      url: 'https://api.findmygc.com/addLink/'+course,
+      url: key.linkAdd+course,
       headers: { 
         'Content-Type': 'application/json'
       },
