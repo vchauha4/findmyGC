@@ -3,7 +3,7 @@ import SearchBar from './SearchBar';
 import IconLabelButtons from './AddMGroupButton';
 import { Link } from 'react-router-dom';
 function Header({setSearchResult}) {
-
+  // eslint-disable-next-line
   const [course, setCourse] = React.useState('');
   console.log(course)
   return (

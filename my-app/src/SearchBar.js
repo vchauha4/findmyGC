@@ -11,7 +11,7 @@ import axios from 'axios';
   
   React.useEffect(function(){
     axios
-      .get("http://localhost:3001/courses")
+      .get("https://api.findmygc.com/courses")
       .then((response)=>setCoursList(response.data))
   },[courseList]);
   

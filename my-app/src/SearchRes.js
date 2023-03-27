@@ -4,7 +4,7 @@ import * as React from 'react';
 
 import Typography from '@mui/material/Typography';
 import axios from 'axios';
-
+import Links from './DisplayMGroups';
 export default function SearchRes({searchResult}) {
 
   const[searchRes,setSearchRes] = React.useState([{messengerGroups:[]}]);
@@ -14,7 +14,7 @@ export default function SearchRes({searchResult}) {
 
   React.useEffect(function(){
       axios
-        .get("http://localhost:3001/gc/"+searchResult)
+        .get("https://api.findmygc.com/gc/"+searchResult)
         .then((response)=>setSearchRes(response.data))
         .then((error)=>console.log(error))
     },[searchRes,searchResult]);
@@ -23,7 +23,7 @@ export default function SearchRes({searchResult}) {
     
 
       <Typography variant="h4" gutterBottom sx={{marginLeft:'20%'}}>
-        Search:{searchRes[0].messengerGroups}
+        Search:<Links messengerList={searchRes[0].messengerGroups}></Links>
       </Typography>
 
 

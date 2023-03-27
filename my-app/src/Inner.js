@@ -1,9 +1,7 @@
 import Typography from '@mui/material/Typography';
 import * as React from 'react';
 import axios from "axios"
-
 import Links from './DisplayMGroups';
-
 
 
 export default function Inner({department}){
@@ -13,10 +11,11 @@ export default function Inner({department}){
 
     React.useEffect(function(){
         axios
-          .get("http://localhost:3001/courses/"+department)
+          .get("https://api.findmygc.com/courses/"+department)
           .then((response)=>setTheCourses(response.data))
           .then((error)=>console.log(error))
       },[theCourses,department]);
+    
     return(
         <div >
         {theCourses.map(theCourse=>(
@@ -27,7 +26,7 @@ export default function Inner({department}){
                     Course: {theCourse.course}
                 </Typography>
                 <Typography>
-                    messenger group links:  <Links messengerList={theCourse.messengerGroups}></Links>
+                    messenger group links: <Links messengerList={theCourse.messengerGroups}></Links>
                 </Typography>
             </div>
             ))}
