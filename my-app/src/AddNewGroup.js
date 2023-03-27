@@ -32,7 +32,7 @@ export default function AddNewGroup() {
     var config = {
       method: 'post',
       maxBodyLength: Infinity,
-      url: 'http://localhost:3001/addLink/'+course,
+      url: 'https://api.findmygc.com/addLink/'+course,
       headers: { 
         'Content-Type': 'application/json'
       },
@@ -51,13 +51,14 @@ export default function AddNewGroup() {
   }
   const validGCLink = ()=>{
     
-    if (course.length>2 && groupChat.slice(0,13)==="https://m.me/"){
+    if (course.length>2 && (groupChat.slice(0,13)==="https://m.me/" ||groupChat.slice(0,19)==="https://discord.gg/" )){
       return(false);
     }
     else{
       return(true);
     }
   }
+
   return (
     
     <Grid container justify ="center" alignItems="center" direction = "column" marginTop={"5%"}>
@@ -70,13 +71,21 @@ export default function AddNewGroup() {
     <TextField
 
           required
-          id="group-required"
+          id="group"
           label="Group Chat Link"
           sx={{width:'465px'}}
-          const message = ""
-          onChange = {(event)=>{setGroupChat(event.target.value)}}
           
+          onChange = {(event)=>{setGroupChat(event.target.value)}}
+          error={validGCLink()}
+          helperText={validGCLink()&&"Link must be from FB messenger or Discord"}
         />
+
+
+
+
+ 
+
+      
     <Box    
     
       component="form"

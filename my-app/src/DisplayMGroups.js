@@ -12,13 +12,13 @@ export default function Links({messengerList}) {
         mList = messengerList;
     }
   return (
-    <div >
+    <div style={{display:"inline"}}>
     {mList.map(thelink=>(
-        <div style={{flexDirection:'row',display: 'flex'}}>
-            <Link target="_blank" href={thelink} variant="body">
+ 
+            <Link target="_blank" href={thelink} variant="body" style={{ paddingRight:'1%'}}>
                 {thelink}
             </Link>
-        </div>
+            
     ))}
         
     </div>
