@@ -76,8 +76,8 @@ export default function AddNewGroup() {
           sx={{width:'465px'}}
           
           onChange = {(event)=>{setGroupChat(event.target.value)}}
-          error={validGCLink()}
-          helperText={validGCLink()&&"Link must be from FB messenger or Discord"}
+          error={validGCLink()&&(groupChat.length>0)}
+          helperText={validGCLink()&&(groupChat.length>0)&&"Link must be from FB messenger or Discord"}
         />
 
 
