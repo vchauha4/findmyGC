@@ -13,3 +13,5 @@ my-app/src/apiKey.js
 mongoDBpass.txt
 
 my-app/backend/
+jobFormatter.py
+tempCodeRunnerFile.python
